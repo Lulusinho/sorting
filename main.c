@@ -5,11 +5,17 @@
 int main(){
     int array[size];
 
-    for (int i = size; i > 0; i--)
+    for (int i = size; i >0; i--)
     {
-        array[i] = i;
+        array[size - i] = i;
     }
-    
+
+    sorting(array);
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", array[i]);
+    }
+
 
     return 0;
 }
