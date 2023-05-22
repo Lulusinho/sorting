@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "bubble.c"
+#include<stdio.h>
+#include<stdlib.h>
+#include "insert.c"
 
-int main()
-{
+
+int main(){
     int array[size];
 
     for (int i = size; i > 0; i--)
@@ -25,6 +25,7 @@ int main()
     {
         printf("%d ", array[i]);
     }
+
 
     return 0;
 }
