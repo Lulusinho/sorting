@@ -1,30 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "bubble.c"
+#include<stdio.h>
+#include<stdlib.h>
+#include "sorting.c"
 
-int main()
-{
+int main(){
     int array[size];
 
-    for (int i = size; i > 0; i--)
+    for (int i = size; i >0; i--)
     {
         array[size - i] = i;
     }
-    printf("Number in descending order:\n");
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d ", array[i]);
-    }
-
-    printf("\n____________________________________________________\n");
 
     sorting(array);
-
-    printf("Ordered numbers:\n");
     for (int i = 0; i < size; i++)
     {
         printf("%d ", array[i]);
     }
+
 
     return 0;
 }
