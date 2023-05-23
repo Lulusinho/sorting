@@ -8,32 +8,60 @@ void breaker(int *, int, int);
 
 void merger(int *, int, int, int);
 
+void merger(int *array, int left, int mid, int right)
+{
+    int sizeA = right - left + 1;
+    int pos1, pos2, *temp;
 
-void merger(int *array, int left, int mid, int right){
-    int pos1, pos2, *temp = malloc(size * (sizeof(int)));
+    temp = (int *)malloc(sizeA * sizeof(int));
     int fim1 = 0, fim2 = 0;
-    pos1 = left;
 
+    pos1 = left;
     pos2 = mid + 1;
-    for (int i = 0; i < size; i++)
+
+    if (temp != NULL)
     {
-        if (!fim1)
+
+        for (int i = 0; i < sizeA; i++)
         {
-            /* code */
+            if (!fim1 && !fim2)
+            {
+                if (array[pos1] < array[pos2])
+                {
+                    temp[i] = array[pos1++];
+                }
+                else
+                {
+                    temp[i] = array[pos2++];
+                }
+                if (pos1 > mid)
+                    fim1 = 1;
+                if (pos2 > fim1)
+                    fim2 = 1;
+            }
+            else
+            {
+                if (!fim1)
+                    temp[i] = array[pos1++];
+                else
+                    temp[i] = array[pos2++];
+            }
         }
-        
+        for (int h = 0, j = left; h < sizeA; h++, j++)
+        {
+            array[j] = temp[h];
+        }
     }
-    
+    free(temp);
 }
 
-
-void  breaker(int *array, int left, int right){
-    if (left > right)
+void breaker(int *array, int left, int right)
+{
+    if (left < right)
     {
-        int mid = ((left + right) / 2);
+        int mid = ((left + right) % 2);
         breaker(array, left, mid);
         breaker(array, mid++, right);
         merger(array, left, mid, right);
     }
-
 }
