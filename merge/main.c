@@ -18,7 +18,7 @@ int main()
 
     printf("\n____________________________________________________\n");
 
-    breaker(array, 0, size - 1);
+    mergeSort(array, 0, size - 1);
 
     printf("Ordered numbers:\n");
     for (int i = 0; i < size; i++)
